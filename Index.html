@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<title>GOLDEN-Cuentas bancarias</title>
+</head>
+<body>
+<div id="app">
+<h4>PROVEEDORES Y CLIENTES</h4>
+<a class="waves-effect waves-light btn" v-on:click="recargar">Recargar</a>
+<div class="input-field">
+    <input type="text" v-model="filtroRazonSocial" placeholder="Filtrar por Razón Social">
+</div>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>BANCO</th>
+<th>N. CUENTA</th>
+<th>CCI</th>
+</tr>
+</thead>
+<tbody>
+<tr v-for="(cliente, index) in listaDatosFiltrada" :key="index">
+  <td @dblclick="copiarValor($event, cliente.Razon_Social)">{{cliente.Razon_Social}}</td>
+  <td @dblclick="copiarValor($event, cliente.Banco)">{{cliente.Banco}}</td>
+  <td @dblclick="copiarValor($event, cliente.Cuenta)">{{cliente.Cuenta}}</td>
+  <td @dblclick="copiarValor($event, cliente.Inter)">{{cliente.Inter}}</td>
+</tr>
+</tbody>
+</table>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="script.js"></script>
+    <script>
+    console.log("El archivo script.js se ha cargado correctamente.");
+</script>
+</body>
+</html> 
