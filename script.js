@@ -91,15 +91,10 @@ const vue = new Vue({
 
       });
     },
-copiarValor(event, valor) {
-  var inputTemp = document.createElement("input");
-  inputTemp.setAttribute("value", valor);
-  document.body.appendChild(inputTemp);
-  inputTemp.select();
-  document.execCommand("copy");
-  document.body.removeChild(inputTemp);
-  alert('El valor "' + valor + '" ha sido copiado al portapapeles');
-}  
+    copiarValor(event, valor) {
+      navigator.clipboard.writeText(valor);
+      alert('El valor "' + valor + '" ha sido copiado al portapapeles');
+    }  
   },
 computed: {
   listaDatosFiltrada() {
